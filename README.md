@@ -8,7 +8,22 @@
       port: 1234
     )
 
-for Rails
+for Rails, please make config/mail.yml like below.
+
+    development:
+      delivery_method: mailcatcher
+
+    test:
+      delivery_method: test
+
+    production:
+      delivery_method: smtp
+      # smtp_settings
+      address: mail.example.com
+      user_name: noreply@example.com
+      password: xxxxxx
+
+and add `require "action_mailer_config/rails"` to config/application.rb.
 
     # config/initializer/application.rb
     module YourApplication
@@ -18,7 +33,12 @@ for Rails
       end
     end
 
-## Contributing to action_mailer_config
+## Delivery method
+
+`smtp`, `sendmail`, `file`, `test` or `mailcatcher` are available.
+mailcatcher requires mailcatcher gem (http://rubygems.org/gems/mailcatcher) and run command `mailcatcher`.
+
+## Contributing to action\_mailer\_config
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it

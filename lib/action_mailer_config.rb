@@ -9,6 +9,8 @@ module ActionMailerConfig
         self.smtp_settings = config
       when :sendmail
         self.sendmail_settings = config
+      when :file
+        self.file_settings = config
       when :mailcatcher
         self.delivery_method = :smtp
         self.smtp_settings = {

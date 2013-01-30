@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "action_mailer_config"
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["labocho"]
-  s.date = "2012-06-12"
+  s.date = "2013-01-30"
   s.description = "Load ActionMailer configuration from YAML"
   s.email = "labocho@penguinlab.jp"
   s.extra_rdoc_files = [
@@ -17,19 +17,25 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    ".cleancode",
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
+    "README.md",
     "Rakefile",
+    "action_mailer_config.gemspec",
     "lib/action_mailer_config.rb",
+    "lib/action_mailer_config/rails.rb",
+    "lib/action_mailer_config/version.rb",
     "spec/action_mailer_config_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/labocho/action_mailer_config"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.17"
+  s.rubygems_version = "1.8.24"
   s.summary = "Load ActionMailer configuration from YAML"
 
   if s.respond_to? :specification_version then
