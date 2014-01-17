@@ -1,5 +1,21 @@
 # action_mailer_config
 
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'action_mailer_config'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install action_mailer_config
+
+
 ## Usage
 
     require "action_mailer_config"
@@ -33,23 +49,18 @@ and add `require "action_mailer_config/rails"` to config/application.rb.
       end
     end
 
+
 ## Delivery method
 
 `smtp`, `sendmail`, `file`, `test` or `mailcatcher` are available.
 mailcatcher requires mailcatcher gem (http://rubygems.org/gems/mailcatcher) and run command `mailcatcher`.
 
-## Contributing to action\_mailer\_config
 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+## Contributing
 
-## Copyright
-
-Copyright (c) 2012 labocho. See LICENSE.txt for
-further details.
+1. Fork it ( http://github.com/labocho/action_mailer_config/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
 
