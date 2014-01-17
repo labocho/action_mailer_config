@@ -39,6 +39,18 @@ describe ActionMailerConfig do
         should == {location: "/path/to/sendmail", arguments: "--some-arguments"}
       }
     end
+    context "delivery_method: letter_opener" do
+      before do
+        ActionMailerConfig.load(
+          "delivery_method" => "letter_opener",
+          "location" => "/path/to/letter_opener",
+        )
+      end
+      its(:delivery_method) { should == :letter_opener }
+      its(:letter_opener_settings) {
+        should == {location: "/path/to/letter_opener"}
+      }
+    end
     context "delivery_method: mailcatcher" do
       before do
         ActionMailerConfig.load(

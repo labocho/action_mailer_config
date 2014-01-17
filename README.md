@@ -52,9 +52,9 @@ and add `require "action_mailer_config/rails"` to config/application.rb.
 
 ## Delivery method
 
-`smtp`, `sendmail`, `file`, `test` or `mailcatcher` are available.
+`smtp`, `sendmail`, `file`, `test`, `letter_opener` or `mailcatcher` are available.
+letter_opener requires letter_opener gem (http://rubygems.org/gems/letter_opener).
 mailcatcher requires mailcatcher gem (http://rubygems.org/gems/mailcatcher) and run command `mailcatcher`.
-
 
 ## Contributing
 
