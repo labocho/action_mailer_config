@@ -17,4 +17,8 @@ else
   {}
 end
 
+if default_url_options = config.delete(:default_url_options) || config.delete("default_url_options")
+  Rails.application.config.action_mailer.default_url_options = default_url_options
+end
+
 ActionMailerConfig.load config
