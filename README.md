@@ -5,7 +5,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'action_mailer_config'
+    gem 'action_mailer_config', '~> 2.0'
 
 And then execute:
 
@@ -21,23 +21,25 @@ Or install it yourself as:
     require "action_mailer_config"
     ActionMailerConfig.load(
       delivery_method: "smtp",
-      port: 1234
+      smtp_settings: {
+        port: 1234
+      }
     )
 
 for Rails, please make config/mail.yml like below.
 
     development:
-      delivery_method: mailcatcher
+      delivery_method: letter_opener
 
     test:
       delivery_method: test
 
     production:
       delivery_method: smtp
-      # smtp_settings
-      address: mail.example.com
-      user_name: noreply@example.com
-      password: xxxxxx
+      smtp_settings:
+        address: mail.example.com
+        user_name: noreply@example.com
+        password: xxxxxx
 
 and add `require "action_mailer_config/rails"` to config/application.rb.
 
@@ -49,12 +51,6 @@ and add `require "action_mailer_config/rails"` to config/application.rb.
       end
     end
 
-
-## Delivery method
-
-`smtp`, `sendmail`, `file`, `test`, `letter_opener` or `mailcatcher` are available.
-letter_opener requires letter_opener gem (http://rubygems.org/gems/letter_opener).
-mailcatcher requires mailcatcher gem (http://rubygems.org/gems/mailcatcher) and run command `mailcatcher`.
 
 ## Contributing
 
