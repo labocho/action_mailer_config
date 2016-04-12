@@ -5,10 +5,19 @@ module ActionMailerConfig
   module_function
   def load(config)
     config = symbolize_keys(config)
-    ActionMailer::Base.instance_eval do
-      self.delivery_method = (config.delete(:delivery_method) || :test).to_sym
+    delivery_method = (config.delete(:delivery_method) || :test).to_sym
+
+    if defined?(Rails)
+      Rails.application.config.action_mailer.delivery_method = delivery_method
       config.each do |attribute, value|
-        send("#{attribute}=", value)
+        Rails.application.config.action_mailer.send("#{attribute}=", value)
+      end
+    else
+      ActionMailer::Base.instance_eval do
+        self.delivery_method = delivery_method
+        config.each do |attribute, value|
+          send("#{attribute}=", value)
+        end
       end
     end
   end
