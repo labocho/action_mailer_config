@@ -30,12 +30,11 @@ module ActionMailerConfig
   def symbolize_keys(obj)
     case obj
     when Hash
-      obj.inject({}) do |new_hash, (k, v)|
-        new_hash[k.to_sym] = symbolize_keys(v)
-        new_hash
+      obj.each_with_object({}) do |(k, v), h|
+        h[k.to_sym] = symbolize_keys(v)
       end
     when Array
-      obj.map{|e| symbolize_keys(e) }
+      obj.map {|e| symbolize_keys(e) }
     else
       obj
     end

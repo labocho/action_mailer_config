@@ -1,5 +1,4 @@
-# encoding: UTF-8
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require File.expand_path(File.dirname(__FILE__) + "/spec_helper")
 
 describe ActionMailerConfig do
   subject { ActionMailer::Base }
@@ -8,7 +7,7 @@ describe ActionMailerConfig do
     context "delivery_method: test" do
       before do
         ActionMailerConfig.load(
-          "delivery_method" => "test"
+          "delivery_method" => "test",
         )
       end
 
@@ -22,8 +21,8 @@ describe ActionMailerConfig do
           "smtp_settings" => {
             "port" => 1234,
             "address" => "mail.example.com",
-            "some_setting" => "some value"
-          }
+            "some_setting" => "some value",
+          },
         )
       end
 
@@ -39,8 +38,8 @@ describe ActionMailerConfig do
           "delivery_method" => "sendmail",
           "sendmail_settings" => {
             "location" => "/path/to/sendmail",
-            "arguments" => "--some-arguments"
-          }
+            "arguments" => "--some-arguments",
+          },
         )
       end
 
@@ -63,7 +62,7 @@ describe ActionMailerConfig do
     context "delivery_method: mailcatcher" do
       before do
         ActionMailerConfig.load(
-          "delivery_method" => "mailcatcher"
+          "delivery_method" => "mailcatcher",
         )
       end
 
@@ -74,8 +73,8 @@ describe ActionMailerConfig do
           ActionMailerConfig.load(
             "delivery_method" => "mailcatcher",
             "smtp_settings" => {
-              "port" => 1234
-            }
+              "port" => 1234,
+            },
           )
         end
 
@@ -90,8 +89,8 @@ describe ActionMailerConfig do
         ActionMailerConfig.load(
           "delivery_method" => "test",
           "default" => {
-            "from" => "from@example.com"
-          }
+            "from" => "from@example.com",
+          },
         )
       end
 
