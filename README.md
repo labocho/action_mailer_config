@@ -22,8 +22,11 @@ Or install it yourself as:
     ActionMailerConfig.load(
       delivery_method: "smtp",
       smtp_settings: {
-        port: 1234
-      }
+        port: 1234,
+      },
+      default: {
+        from: "from@example.com",
+      },
     )
 
 for Rails, please make config/mail.yml like below.
@@ -40,6 +43,8 @@ for Rails, please make config/mail.yml like below.
         address: mail.example.com
         user_name: noreply@example.com
         password: xxxxxx
+      default:
+        from: from@example.com
 
 and add `require "action_mailer_config/rails"` to config/application.rb.
 

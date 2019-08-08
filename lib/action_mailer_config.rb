@@ -7,6 +7,10 @@ module ActionMailerConfig
     config = symbolize_keys(config)
     delivery_method = (config.delete(:delivery_method) || :test).to_sym
 
+    if (default = config.delete(:default))
+      ActionMailer::Base.default(default)
+    end
+
     if defined?(Rails)
       Rails.application.config.action_mailer.delivery_method = delivery_method
       config.each do |attribute, value|

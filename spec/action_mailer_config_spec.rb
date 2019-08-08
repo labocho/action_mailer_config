@@ -84,5 +84,20 @@ describe ActionMailerConfig do
         }
       end
     end
+
+    context "set default" do
+      before do
+        ActionMailerConfig.load(
+          "delivery_method" => "test",
+          "default" => {
+            "from" => "from@example.com"
+          }
+        )
+      end
+
+      it "sets default value" do
+        expect(ActionMailer::Base.default[:from]).to eq "from@example.com"
+      end
+    end
   end
 end
