@@ -4,7 +4,8 @@ require "yaml"
 path = "#{Rails.root}/config/mail.yml"
 
 config = if File.exist? path
-  config_for_all = YAML.load_file(path, aliases: true)
+  yaml = ERB.new(File.read(path), trim_mode: "-").result
+  config_for_all = YAML.load(yaml, aliases: true)
 
   if config_for_all.key? Rails.env
     config_for_all[Rails.env]
