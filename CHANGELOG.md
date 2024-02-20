@@ -1,3 +1,7 @@
+# v2.2.0
+
+- Support ERB in YAML file.
+
 # v2.1.0
 
 - Support `default` settings to set `ActionMailer::Base.default`.
